@@ -22,15 +22,16 @@ Cineverse is a feature-rich movie searching application that allows users to exp
 
 ### Frontend:
 
-- 💀 React 19: Core framework for building dynamic user interfaces.
-- 👻 Tailwind CSS V4: For modern, responsive, and utility-first styling.
-- 👽 Lottie: Beautiful animations for user interactions and feedback.
-- 👾 Spline: Stunning 3D models for an immersive visual experience.
-- 🤖 Framer Motion: Adding smooth animations and transitions to the UI.
+- 💀 **React 19**: Core framework for building dynamic user interfaces.
+- 👻 **Tailwind CSS V4**: For modern, responsive, and utility-first styling.
+- 👹 **TMDB API**: Fetches movie details & images
+- 👽 **Lottie**: Beautiful animations for user interactions and feedback.
+- 👾 **Spline**: Stunning 3D models for an immersive visual experience.
+- 🤖 **Framer Motion**: Adding smooth animations and transitions to the UI.
 
 ### Database:
 
-- 😈 Appwrite (Database): Stores search data to track the most-searched movies and <br /> dynamically updates the top 5 trending movies section.
+- 😈 **Appwrite (Database)**: Stores search data to track the most-searched movies and <br /> dynamically updates the top 5 trending movies section.
 
 ### Run the Project
 ```bash
