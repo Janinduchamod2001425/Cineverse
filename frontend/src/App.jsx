@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import Search from "./components/Search.jsx";
 import MovieCard from "./components/MovieCard.jsx";
 import Loader from "./components/Loader.jsx";
+import { motion } from "framer-motion";
 
 import { useDebounce } from "react-use";
 import { getTrendingMovies, updateSearchCount } from "./appwrite.js";
+import GenreButtons from "./components/GenreButtons.jsx";
+import Spline from "@splinetool/react-spline";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -36,14 +39,17 @@ const App = () => {
   useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
 
   // Method for Fetching Movie data
-  const fetchMovies = async (query = "") => {
+  const fetchMovies = async (query = "", genreId = null) => {
     setIsLoading(true);
     setErrorMessage("");
 
     try {
       const endpoint = query
         ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
-        : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+        : genreId
+          ? `${API_BASE_URL}/discover/movie?with_genres=${genreId}&sort_by=popularity.desc`
+          : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+
       const response = await fetch(endpoint, API_OPTIONS);
 
       if (!response.ok) {
@@ -100,19 +106,27 @@ const App = () => {
         <div className="wrapper">
           {/*Header*/}
           <header>
-            <img src={"./hero.png"} alt="Hero Banner" />
             <h1>
-              Find <span className="text-gradient ">Movies</span> You'll Enjoy
+              Find <span className="text-gradient">Movies</span> You'll Enjoy
               Without the Hassle
             </h1>
+            {/*Spline 3D model*/}
+            <Spline
+              scene="https://prod.spline.design/WFisHFz8bcuDMLgq/scene.splinecode"
+              className="w-full sm:w-1/2 h-[400px] sm:h-[680px]"
+            />
             <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           </header>
+
+          {/*Quick search by Genre*/}
+          <GenreButtons onGenreClick={fetchMovies} />
 
           {/*Trending Movies*/}
           {trendingMovies.length > 0 && (
             <section className="trending">
               <h2>Trending Movies</h2>
 
+              {/*Trending movies are based on the number of searches made by users */}
               <ul>
                 {trendingMovies.map((movie, index) => (
                   <li key={movie.$id}>
@@ -123,13 +137,32 @@ const App = () => {
               </ul>
             </section>
           )}
-          <section className="all-movies">
+
+          {/*All Movies*/}
+          <motion.section
+            className="all-movies"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             <h2>All Movies</h2>
 
+            {/*Display a loader when the data is being fetched*/}
             {isLoading ? (
               <Loader />
             ) : errorMessage ? (
               <p className="text-red-500">{errorMessage}</p>
+            ) : movieList.length === 0 ? (
+              <p className="text-gray-500 text-lg mt-4 font-sans">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                >
+                  🥲 No results found. Try searching for another genre or
+                  keyword.
+                </motion.div>
+              </p>
             ) : (
               <ul>
                 {movieList.map((movie) => (
@@ -137,7 +170,7 @@ const App = () => {
                 ))}
               </ul>
             )}
-          </section>
+          </motion.section>
         </div>
       </div>
     </main>
