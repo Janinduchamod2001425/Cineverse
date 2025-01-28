@@ -36,7 +36,7 @@ Cineverse is a feature-rich movie searching application that allows users to exp
 ### Run the Project
 ```bash
 npm install
-&
+
 npm run dev
 ```
 
