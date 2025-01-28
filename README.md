@@ -28,6 +28,21 @@ Cineverse is a feature-rich movie searching application that allows users to exp
 - 👾 Spline: Stunning 3D models for an immersive visual experience.
 - 🤖 Framer Motion: Adding smooth animations and transitions to the UI.
 
-### Backend:
+### Database:
 
 - 😈 Appwrite (Database): Stores search data to track the most-searched movies and <br /> dynamically updates the top 5 trending movies section.
+
+### Run the Project
+```bash
+npm install
+&
+npm run dev
+```
+
+### ENV
+```dotenv
+VITE_TMDB_API_KEY=
+VITE_APPWRITE_PROJECT_ID=
+VITE_APPWRITE_DATABASE_ID=
+VITE_APPWRITE_COLLECTION_ID=
+```
