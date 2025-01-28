@@ -14,7 +14,6 @@ import {
   FaGhost,
   FaHeart,
   FaHatCowboy,
-  FaCarCrash,
   FaUsers,
   FaQuestion,
   FaLandmark,
