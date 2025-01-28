@@ -1,2 +1,5 @@
-# Cineverse
-A blend of "cinema" and "universe," perfect for a comprehensive movie platform.
+# Cineverse 🎬
+
+### A blend of ***Cinema*** and ***universe*** perfect for a comprehensive movie platform.
+
+

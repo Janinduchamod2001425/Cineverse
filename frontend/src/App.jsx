@@ -106,6 +106,16 @@ const App = () => {
         <div className="wrapper">
           {/*Header*/}
           <header>
+            {/*Logo with site name*/}
+            <div className="flex justify-center items-center space-x-2 mb-16">
+              {/* Logo */}
+              <img src="/Cineverse.svg" alt="Cineverse Logo" className="logo" />
+              {/* Brand */}
+              <span className="brand">
+                <span>ᑢ</span>ineverse
+              </span>
+            </div>
+
             <h1>
               Find <span className="text-gradient">Movies</span> You'll Enjoy
               Without the Hassle

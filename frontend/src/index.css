@@ -57,6 +57,14 @@
         @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
     }
 
+    .logo {
+        @apply w-15 h-auto mx-auto;
+    }
+
+    .brand {
+        @apply text-gradient-brand text-4xl font-bold text-center;
+    }
+
     .trending {
         @apply mt-20;
 
@@ -164,6 +172,10 @@
 
 @utility text-gradient {
     @apply bg-linear-to-r from-blue-400 via-pink-400 to-[#AB8BFF] bg-clip-text text-transparent;
+}
+
+@utility text-gradient-brand {
+    @apply bg-linear-to-r from-indigo-300 via-pink-200 to-[#AB8BFF] bg-clip-text text-transparent;
 }
 
 @utility fancy-text {
