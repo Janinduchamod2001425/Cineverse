@@ -101,8 +101,12 @@
         }
     }
 
+    .movie-card-container {
+        @apply bg-gradient-to-r from-[#ff00ff] to-[#3700ff] rounded-[20px] transition-all duration-300 hover:shadow-[0px_0px_30px_1px_rgba(0,255,117,0.3)];
+    }
+
     .movie-card {
-        @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
+        @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10 transition-all duration-200 hover:scale-[0.98];
 
         & img {
             @apply rounded-lg h-auto w-full;
