@@ -1,6 +1,6 @@
 # Cineverse 📽️
 
-A blend of ***Cinema*** and ***universe*** perfect for a comprehensive movie platform.
+A blend of ***Cinema*** and ***Universe*** perfect for a comprehensive movie platform.
 
 <img src="https://go-skill-icons.vercel.app/api/icons?i=react,tailwind,appwrite,api" />
 
