@@ -101,7 +101,7 @@ const App = () => {
   }, []);
 
   return (
-    <main>
+    <main className="relative min-h-screen w-screen overflow-x-hidden">
       <div className="pattern">
         <div className="wrapper">
           {/*Header*/}
